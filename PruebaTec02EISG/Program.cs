@@ -1,7 +1,12 @@
+using Microsoft.EntityFrameworkCore;
+using PruebaTec02EISG.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<PruebaTec02EISGDbContext>(options =>
+       options.UseSqlServer(builder.Configuration.GetConnectionString("conn")));
 
 var app = builder.Build();
 
