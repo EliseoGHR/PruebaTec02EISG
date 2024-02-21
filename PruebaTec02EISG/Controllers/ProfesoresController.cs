@@ -54,7 +54,7 @@ namespace PruebaTec02EISG.Controllers
         // POST: Profesores/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
+        [HttpPost]  
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("ProfesorId,Nombre,Apellido,CorreoElectronico,Telefono,CarreraId")] Profesor profesor, IFormFile imagen)
         {
