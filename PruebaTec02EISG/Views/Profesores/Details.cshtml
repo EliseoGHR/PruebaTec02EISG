@@ -4,7 +4,7 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<h1>Detalle Profesor</h1>
 
 <div>
     <h4>Profesor</h4>
@@ -38,7 +38,20 @@
             @Html.DisplayNameFor(model => model.Imagen)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Imagen)
+            @{
+                string urlBase64 = "";
+                if (Model.Imagen != null && Model.Imagen.Length > 0)
+                {
+                    string base64String = Convert.ToBase64String(Model.Imagen);
+                    urlBase64 = "data:image/jpeg;base64," + base64String;
+                }
+                else
+                {
+                    // Si no hay imagen, utilizar una imagen por defecto
+                    urlBase64 = "/image/defecto.png"; // Ruta relativa desde la carpeta wwwroot
+                }
+            }
+            <img src="@urlBase64" width="125px" height="100px" />
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Carrera)
@@ -49,6 +62,6 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.ProfesorId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Edit" asp-route-id="@Model?.ProfesorId">Editar</a> |
+    <a asp-action="Index" class="btn btn-secondary>Cancelart</a>
 </div>

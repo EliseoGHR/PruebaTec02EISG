@@ -55,7 +55,7 @@ namespace PruebaTec02EISG.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CarreraId,Nombre,ProfesorId")] Carrera carrera)
+        public async Task<IActionResult> Create([Bind("CarreraId,Nombre")] Carrera carrera)
         {
             _context.Add(carrera);
             await _context.SaveChangesAsync();
@@ -84,7 +84,7 @@ namespace PruebaTec02EISG.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("CarreraId,Nombre,ProfesorId")] Carrera carrera)
+        public async Task<IActionResult> Edit(int id, [Bind("CarreraId,Nombre")] Carrera carrera)
         {
             if (id != carrera.CarreraId)
             {

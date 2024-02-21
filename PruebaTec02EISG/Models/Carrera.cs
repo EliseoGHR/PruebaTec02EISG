@@ -13,8 +13,6 @@ namespace PruebaTec02EISG.Models
         public string Nombre { get; set; }
 
         // Clave foránea
-        public int ProfesorId { get; set; }
-
         public virtual ICollection<Profesor> Profesores { get; set; }
     }
 }
